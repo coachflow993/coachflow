@@ -1,0 +1,8 @@
+-- CoachFlow initial migration — applied to project csbobvgvzualthuzytcv on 2026-06-20
+-- 11 tables with RLS, triggers, indexes:
+--   audit_log, coaches, feedback, matches, moments, parents,
+--   players, sessions, skill_ratings, tasks, teams
+-- To regenerate this file from the live DB if needed:
+--   supabase db dump --schema public --project-id csbobvgvzualthuzytcv
+-- TypeScript types are generated from the live DB via:
+--   npx supabase gen types typescript --project-id csbobvgvzualthuzytcv > src/lib/database.types.ts

@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* ── Design tokens ── */
+@theme {
+  /* Colors */
+  --color-bg: #0B1E1A;
+  --color-surface: #142724;
+  --color-surface-2: #1A2F2B;
+  --color-border: rgba(63, 162, 100, 0.12);
+  --color-text: #FAF6EE;
+  --color-text-muted: #8FA39D;
+  --color-text-dim: #4F605C;
+  --color-green: #3DDC97;
+  --color-orange: #F08A3E;
+  --color-alert: #E55D5D;
+  --color-pitch: #102B23;
+  --color-pitch-line: rgba(63, 162, 100, 0.28);
+
+  /* Fonts */
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ── Base styles ── */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Eyebrow utility ── */
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
