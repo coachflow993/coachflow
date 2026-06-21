@@ -21,3 +21,4 @@ Thumbs.db
 
 # Netlify
 .netlify
+supabase/.temp/

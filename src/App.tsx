@@ -8,6 +8,7 @@ import Today from './pages/Today'
 import Squad from './pages/Squad'
 import Sessions from './pages/Sessions'
 import Matches from './pages/Matches'
+import MatchDetail from './pages/MatchDetail'
 import More from './pages/More'
 
 function AuthenticatedLayout() {
@@ -19,6 +20,7 @@ function AuthenticatedLayout() {
           <Route path="/squad" element={<Squad />} />
           <Route path="/sessions" element={<Sessions />} />
           <Route path="/matches" element={<Matches />} />
+          <Route path="/matches/:id" element={<MatchDetail />} />
           <Route path="/more" element={<More />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

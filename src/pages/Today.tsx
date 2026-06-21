@@ -1,7 +1,14 @@
+import { useEffect, useState } from 'react'
 import { useAuth } from '../lib/auth-context'
+import { fetchMatchStats } from '../lib/matches'
 
 export default function Today() {
-  const { user, signOut } = useAuth()
+  const { user } = useAuth()
+  const [stats, setStats] = useState({ count: 0, totalGoals: 0 })
+
+  useEffect(() => {
+    fetchMatchStats().then(setStats).catch(console.error)
+  }, [])
 
   return (
     <div className="flex-1 px-4 py-6">
@@ -22,7 +29,7 @@ export default function Today() {
         <p className="eyebrow mb-3">Quick Stats</p>
         <div className="flex gap-4">
           <div className="flex-1 text-center">
-            <p className="font-mono text-2xl font-bold text-green">0</p>
+            <p className="font-mono text-2xl font-bold text-green">{stats.count}</p>
             <p className="text-xs text-text-dim mt-1">Matches</p>
           </div>
           <div className="flex-1 text-center">
@@ -30,18 +37,11 @@ export default function Today() {
             <p className="text-xs text-text-dim mt-1">Sessions</p>
           </div>
           <div className="flex-1 text-center">
-            <p className="font-mono text-2xl font-bold text-text">0</p>
+            <p className="font-mono text-2xl font-bold text-text">{stats.totalGoals}</p>
             <p className="text-xs text-text-dim mt-1">Goals</p>
           </div>
         </div>
       </div>
-
-      <button
-        onClick={signOut}
-        className="mt-8 w-full rounded-xl border border-border py-3 text-sm text-text-muted hover:text-alert transition-colors"
-      >
-        Sign Out
-      </button>
     </div>
   )
 }
