@@ -7,7 +7,53 @@ export type Database = {
       audit_log: { Row: Record<string, unknown>; Insert: Record<string, unknown>; Update: Record<string, unknown> }
       coaches: { Row: Record<string, unknown>; Insert: Record<string, unknown>; Update: Record<string, unknown> }
       feedback: { Row: Record<string, unknown>; Insert: Record<string, unknown>; Update: Record<string, unknown> }
-      matches: { Row: Record<string, unknown>; Insert: Record<string, unknown>; Update: Record<string, unknown> }
+      matches: {
+        Row: {
+          id: string
+          athlete_id: string
+          match_date: string
+          opponent: string
+          venue: string | null
+          is_home: boolean
+          our_score: number
+          their_score: number
+          my_position: string | null
+          my_goals: number
+          notes: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          athlete_id: string
+          match_date: string
+          opponent: string
+          venue?: string | null
+          is_home?: boolean
+          our_score?: number
+          their_score?: number
+          my_position?: string | null
+          my_goals?: number
+          notes?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          athlete_id?: string
+          match_date?: string
+          opponent?: string
+          venue?: string | null
+          is_home?: boolean
+          our_score?: number
+          their_score?: number
+          my_position?: string | null
+          my_goals?: number
+          notes?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
       moments: { Row: Record<string, unknown>; Insert: Record<string, unknown>; Update: Record<string, unknown> }
       parents: { Row: Record<string, unknown>; Insert: Record<string, unknown>; Update: Record<string, unknown> }
       players: { Row: Record<string, unknown>; Insert: Record<string, unknown>; Update: Record<string, unknown> }

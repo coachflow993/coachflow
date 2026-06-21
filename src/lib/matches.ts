@@ -40,22 +40,22 @@ export async function fetchMatchById(id: string) {
 export async function createMatch(match: MatchInsert) {
   const { data, error } = await supabase
     .from('matches')
-    .insert(match)
+    .insert(match as never)
     .select()
     .single()
   if (error) throw error
-  return data as Match
+  return data as unknown as Match
 }
 
 export async function updateMatch(id: string, updates: Partial<MatchInsert>) {
   const { data, error } = await supabase
     .from('matches')
-    .update(updates)
+    .update(updates as never)
     .eq('id', id)
     .select()
     .single()
   if (error) throw error
-  return data as Match
+  return data as unknown as Match
 }
 
 export async function deleteMatch(id: string) {
@@ -74,6 +74,6 @@ export async function fetchMatchStats() {
   const matches = data ?? []
   return {
     count: matches.length,
-    totalGoals: matches.reduce((sum, m) => sum + (m.my_goals ?? 0), 0),
+    totalGoals: matches.reduce((sum, m) => sum + ((m as unknown as Match).my_goals ?? 0), 0),
   }
 }
